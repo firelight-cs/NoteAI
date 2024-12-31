@@ -1,0 +1,11 @@
+# folders
+
+archieve/
+__pycache__/
+env_n/
+
+
+# files
+!.gitignore
+.devlogdict.md
+
