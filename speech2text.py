@@ -42,31 +42,3 @@ class SpeechToText():
     def transcribe_audio(self, audio_path):
         result = self.pipe(audio_path, generate_kwargs=self.generate_kwargs)
         return result["text"]
-
-
-    def save_to_text(self, transcription, output_path="raw_text.txt"): #FIXME
-        with open(output_path, "w") as f:
-            f.write(transcription)
-        print(f'Transcription saved to {output_path}')
-
-
-def main():
-
-    language = "russian" # it's not neccesary to declare the language, but it will help the model to understand the audio better
-    audio_path = "tmpAV/audio.mp3"
-    
-    start_t = time.time()
-
-    transcription1 = SpeechToText(language)
-    text_to_write = transcription1.transcribe_audio(audio_path)
-    transcription1.save_to_text(text_to_write)
-
-    end_t = time.time()
-    execution_t = end_t - start_t
-
-    print(f"\n\nExecution time: {execution_t} seconds")
-
-
-
-if __name__ == "__main__":
-    main()
